@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.wd-left-bottom {
+   bottom: -50px;
+   left: 25px;
+}
+
+.wd-right-bottom {
+   bottom: -50px;
+   right: 25px;
+}
+
+.wd-game-summary-image {
+  width:300px;
+  height:100px;
+  object-fit: cover;
+  object-position: 100% 50%;
+}
