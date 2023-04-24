@@ -18,3 +18,13 @@ export const findGameReviews = async (gameId) => {
     const response = await api.get(`${REVIEWS_API}/games/${gameId}`);
     return response.data;
 }
+
+export const deleteReview = async (rid) => {
+    const response = await api.delete(`${REVIEWS_API}/${rid}`);
+    return response.data;
+}
+
+export const findAllReviews = async () => {
+    const response = await api.get(`${REVIEWS_API}`);
+    return response.data;
+}

@@ -11,8 +11,6 @@ const DetailComponent = () => {
     const { id } = useParams();
     const [game, setGame] = useState(null);
 
-    const { currentUser } = useSelector((state) => state.user);
-
     useEffect(() => {
         const fetchGame = async () => {
             const response = await getGame(id);
@@ -23,7 +21,7 @@ const DetailComponent = () => {
 
     return (
         <>
-            <h4>Detail {id} </h4>
+            <h1>Detail Page</h1>
 
             <DetailItem game={game} />
             <UserReview game={game} />

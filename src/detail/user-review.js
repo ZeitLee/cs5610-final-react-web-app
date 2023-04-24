@@ -14,9 +14,9 @@ const UserReview = ({ game }) => {
             text: review,
             gameId: id,
             gameName: game.info.title,
+            gameIcon: game.info.thumb,
             userId: currentUser._id
         });
-        window.location.reload();
     }
 
     const getGameReviews = async () => {
@@ -26,19 +26,31 @@ const UserReview = ({ game }) => {
 
     useEffect(() => {
         getGameReviews();
-    }, []);
+    }, [id]);
 
 
     return (
-        <div className="border">
+        <div className="border mt-3">
             <h1>Review</h1>
 
             <ul className="list-group">
                 {reviews?.map((review) => {
                     return (
-                        <Link to={`/profile/${review.userId}`} className="list-group-item" key={review._id}>
-                            {review.text}
-                        </Link>
+                        <div className="list-group-item">
+                            <div className="row">
+                                <div className="col-7">
+                                    <h2>{`${review.userId.firstname} ${review.userId.lastname}`}</h2>
+                                    <Link to={`/profile/${review.userId}`} className="" key={review._id}>
+                                        {review.text}
+                                    </Link>
+                                </div>
+
+                                <div className="col-5">
+                                    <img src={`/images/myAvatar.jpeg`} className="rounded-circle float-end" width="100px" height="100px"></img>
+                                </div>
+
+                            </div>
+                        </div>
                     )
                 })}
             </ul>

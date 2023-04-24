@@ -28,3 +28,8 @@ code {
   object-fit: cover;
   object-position: 100% 50%;
 }
+
+.wd-input-hint {
+   top: 28px;
+   left: 38px;
+}

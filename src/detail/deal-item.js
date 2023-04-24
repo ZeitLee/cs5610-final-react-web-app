@@ -25,23 +25,27 @@ const DealItem = ({ deal }) => {
     return (
         <li className="list-group-item">
             <div className="row">
-                <div className="col-4">
-                    <img src={`https://www.cheapshark.com/${store.images.logo}`} alt="store"></img>
-                </div>
 
                 <div className="col-8">
-                    <div>
-                        Store Name: {store.storeName}
+                    <div className="ms-2">
+                        <div>
+                            Store Name: {store.storeName}
+                        </div>
+                        <div>
+                            Current Price: ${deal.price}
+                        </div>
+                        <div>
+                            Retail Price: ${deal.retailPrice}
+                        </div>
+                        <div>
+                            Saving: {saving}%
                     </div>
-                    <div>
-                        Current Price: ${deal.price}
                     </div>
-                    <div>
-                        Retail Price: ${deal.retailPrice}
-                    </div>
-                    <div>
-                        Saving: {saving}%
-                    </div>
+
+                </div>
+
+                <div className="col-4">
+                    <img src={`https://www.cheapshark.com/${store.images.logo}`} alt="store" width="100px" className="float-end"></img>
                 </div>
             </div>
         </li >

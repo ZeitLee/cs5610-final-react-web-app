@@ -8,16 +8,16 @@ const DetailItem = ({ game }) => {
         return (
             <div className="border">
                 <div className="row">
-                    <div className="col-4 my-2">
-                        <img src={game.info.thumb} alt="game icon" width="80%"></img>
-                    </div>
+                    < div className="col-7 my-2" >
+                        <img src={game.info.thumb} alt="game icon" width="80%" className="ms-3"></img>
+                    </div >
 
-                    <div className="col-8 my-2">
+                    <div className="col-5 my-2">
                         <h1>{game.info.title}</h1>
                         <p>The cheapest price ever: ${game.cheapestPriceEver.price}</p>
                     </div>
                     {/* <pre>{JSON.stringify(game, null, 2)}</pre> */}
-                </div>
+                </div >
 
                 <ul className="list-group">
                     {
