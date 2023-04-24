@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const SERVER_API_URL = process.env.REACT_APP_API_BASE || "http://localhost:4000/api";
+const SERVER_API_URL = process.env.REACT_APP_API_BASE;// "http://localhost:4000/api"; //*************update later for env *
 const REVIEWS_API = `${SERVER_API_URL}/follows`;
 
 const api = axios.create({ withCredentials: true });
