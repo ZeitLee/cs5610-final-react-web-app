@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import { profileThunk, logoutThunk, updateUserThunk } from "../services/auth-thunks";
+import { updateUserThunk } from "../services/auth-thunks";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -132,18 +132,7 @@ function EditProfileScreen() {
                         className="form-control rounded mt-1 mb-5" />
                 </div>
             }
-
-
-
-            <button
-                onClick={() => {
-                    dispatch(logoutThunk());
-                    navigate("/login");
-                }}>
-                Logout</button>
-
         </div >
-
 
     );
 

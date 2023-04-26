@@ -1,5 +1,5 @@
 import axios from "axios";
-const SERVER_API_URL = process.env.REACT_APP_API_BASE;//|| "http://localhost:4000/api"; //*************update later for env */
+const SERVER_API_URL = process.env.REACT_APP_API_BASE || "http://localhost:4000/api"; //**update later for env */
 const USERS_URL = `${SERVER_API_URL}/users`;
 
 
@@ -40,5 +40,10 @@ export const register = async (user) => {
 
 export const findUserById = async (userId) => {
     const response = await api.get(`${USERS_URL}/${userId}`);
+    return response.data;
+}
+
+export const findAllUser = async () => {
+    const response = await api.get(`${USERS_URL}`);
     return response.data;
 }

@@ -4,6 +4,7 @@ import { profileThunk, logoutThunk, updateUserThunk } from "../services/auth-thu
 import Reviews from '../component/reviews-component'
 import Followers from '../component/followers'
 import ProfileComponent from '../component/profile-component'
+import ClubList from '../component/clubs-component'
 
 
 function ProfileScreen() {
@@ -22,13 +23,23 @@ function ProfileScreen() {
 
     return (
         <div>
-            <h1>Profile Screen</h1>
-            <ProfileComponent profile={profile} />
-            <Reviews userId={currentUser._id} />
-            <Followers userId={currentUser._id} />
-        </div>
+            <div className="row">
+                <div className="col-8">
+                    <ProfileComponent profile={profile} />
+                    <div className="row">
+                        <ClubList userId={currentUser._id} />
+                    </div>
+                    <div className="row">
+                        <Reviews userId={currentUser._id} />
+                    </div>
 
 
+                </div>
+                <div className="col-4">
+                    <Followers userId={currentUser._id} />
+                </div>
+            </div>
+        </div >
     );
 
 }

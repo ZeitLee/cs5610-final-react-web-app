@@ -17,14 +17,23 @@ function Reviews({ userId }) {
         getMyReviews();
     }
 
+    const loginVisiable = (reviewId) => {
+        if (currentUser === null) {
+
+        } else if (currentUser._id === userId) {
+            return (
+                <button className="btn btn-danger mt-3 mb-2" onClick={() => deleteMyReview(reviewId)}> Delete</button>
+            );
+        }
+    }
+
     useEffect(() => {
         getMyReviews();
     }, [userId])
 
     return (
-        <div className="border border-2 mt-3">
-            <h2>My Reviews</h2>
-
+        <div className="border border-2 rounded border-dark mt-4 bg-warning">
+            <h2 className="text-center py-2"> Reviews</h2>
             <div className="list-group">
                 {reviews?.map((review) => {
                     return (
@@ -35,7 +44,7 @@ function Reviews({ userId }) {
                                     <div className="border rounded py-2 px-3 mt-3">
                                         {review.text}
                                     </div>
-                                    {currentUser._id === userId && <button className="btn btn-danger mt-3 mb-2" onClick={() => deleteMyReview(review._id)}> Delete</button>}
+                                    {loginVisiable(review._id)}
                                 </div>
 
                                 <div className="col-4 my-auto">

@@ -9,6 +9,9 @@ import SearchComponent from "./search/index"
 import DetailComponent from "./detail/index"
 import GameSummaryList from "./search/result-list"
 import OtherProfile from './screens/other-profile'
+import ClubScreen from './screens/club-screen'
+import ClubDetailScreen from './screens/club-detail-screen'
+import AdminScreen from './screens/admin-screen'
 
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from "react-redux";
@@ -23,27 +26,34 @@ const store = configureStore({
 
 
 function App() {
+
+  document.body.style.backgroundColor = "lightblue";
   return (
-    <Provider store={store}>
-      <LoadProfile>
-        <BrowserRouter>
-          <div className="container">
-            <Navigation />
-            <Routes>
-              <Route path="/*" element={<HomeComponent />} />
-              <Route path="/search" element={<SearchComponent />} />
-              <Route path="/search/:title" element={<GameSummaryList />} />
-              <Route path="/game/detail/:id" element={<DetailComponent />} />
-              <Route path="/login" element={<LoginScreen />} />
-              <Route path="/profile" element={<ProfileScreen />} />
-              <Route path="/profile/:id" element={<OtherProfile />} />
-              <Route path="/profile/edit-profile" element={<EditProfileScreen />} />
-              <Route path="/register" element={<RegisterScreen />} />
-            </Routes>
-          </div>
-        </BrowserRouter>
-      </LoadProfile>
-    </Provider>
+    <div className="">
+      <Provider store={store}>
+        <LoadProfile>
+          <BrowserRouter>
+            <div className="container">
+              <Navigation />
+              <Routes>
+                <Route path="/*" element={<HomeComponent />} />
+                <Route path="/search" element={<SearchComponent />} />
+                <Route path="/search/:title" element={<GameSummaryList />} />
+                <Route path="/game/detail/:id" element={<DetailComponent />} />
+                <Route path="/profile" element={<ProfileScreen />} />
+                <Route path="/profile/:id" element={<OtherProfile />} />
+                <Route path="/profile/edit-profile" element={<EditProfileScreen />} />
+                <Route path="/login" element={<LoginScreen />} />
+                <Route path="/register" element={<RegisterScreen />} />
+                <Route path="/clubs" element={<ClubScreen />} />
+                <Route path="/clubs/:clubId" element={<ClubDetailScreen />} />
+                <Route path="/admin" element={<AdminScreen />} />
+              </Routes>
+            </div>
+          </BrowserRouter>
+        </LoadProfile>
+      </Provider >
+    </div>
   );
 }
 

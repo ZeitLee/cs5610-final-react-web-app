@@ -5,28 +5,26 @@ import "../index.css"
 const ResultSummaryItem = ({ result }) => {
 
     return (
-        <li className="list-group-item" key={result.gameID}>
+        <div className="list-group-item border-2 border-dark " >
             <div className="row">
-                <div className="col-9">
-                    <h1>
+                < div className="col-9" >
+                    <h2 className="d-block p-2 bg-primary text-white rounded-pill text-center fst-italic mt-3">
                         {result.external}
-                    </h1>
-                    <div>
-                        The current lowest price: ${result.cheapest}
-                    </div>
-                    <Link to={`/game/detail/${result.gameID}`}> Detail </Link>
+                    </h2>
+                    <div className="text-end pe-3 fst-italic fs-5">
+                        <strong>The current lowest price: ${result.cheapest}</strong>
+                    </div >
+                    <Link to={`/game/detail/${result.gameID}`} className="float-end pe-3 pt-1"> Detail</Link>
+                </div >
+
+                <div className="col-3 align-self-center">
+                    <img src={result.thumb} alt="game icon" className="rounded wd-game-summary-image"></img>
                 </div>
 
-                <div className="col-3">
-                    <h1>
-                        <img src={result.thumb} alt="game icon" className="rounded wd-game-summary-image"></img>
-                    </h1>
-                </div>
-
-            </div>
+            </div >
 
 
-        </li >
+        </div >
     );
 };
 export default ResultSummaryItem;

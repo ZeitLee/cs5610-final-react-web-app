@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getFollowers, getFollowing } from '../services/follow-service'
+import UserSummaryComponent from '../component/user-summary-component'
 
 function Followers({ userId }) {
     const [followers, setFollowers] = useState([]);
@@ -15,47 +16,49 @@ function Followers({ userId }) {
         setFollowing(resposne);
     }
 
+    const followerDisplay = () => {
+        if (followers.length === 0) {
+            return (<div className="list-group-item"><h4 className="text-center border border-white rounded py-2"> No followers.</h4></div>);
+        }
+        return (
+            followers?.map((ele) => (
+                <div className="list-group-item">
+                    <UserSummaryComponent userId={ele.followerId} />
+                </div>
+            ))
+        );
+    }
+
+    const followingDisplay = () => {
+        if (following.length === 0) {
+            return (<div className="list-group-item"><h4 className="text-center border border-white rounded py-2"> No following.</h4></div>);
+        }
+        return (
+            following?.map((ele) => (
+                <UserSummaryComponent userId={ele.followedId} />
+            ))
+        );
+    }
+
     useEffect(() => {
         fetchFollowers();
         fetchFollowing();
     }, [])
 
     return (
-        <div className="row my-5">
-            <div className="col-6">
-                <h1>Followers</h1>
-                <div className="">
-                    {followers?.map((ele) => (
-                        <div className="row border mx-1 rounded">
-                            <div className="col-8">
-                                <span className="">{ele.followerId.firstname} {ele.followerId.lastname}</span>
-                            </div>
-
-                            <div className="col-4 py-3">
-                                <img src={`/images/myAvatar.jpeg`} className="rounded-circle float-end" width="50px" height="50px"></img>
-                            </div>
-                        </div>
-                    ))}
-
+        <div className="mx-4 mt-4">
+            <div className="row border border-dark rounded bg-primary text-white">
+                <h2 className="text-center py-2">Followers</h2>
+                <div className="list-group my-3 ms-1 ">
+                    {followerDisplay()}
                 </div>
             </div>
 
-            <div className="col-6">
-                <h2>Following</h2>
-                <ul className="list-group">
-                    {following?.map((ele) => (
-                        <div className="row border mx-1 rounded">
-                            <div className="col-8">
-                                <span className="">{ele.followedId.firstname} {ele.followedId.lastname}</span>
-                            </div>
-
-                            <div className="col-4 py-3">
-                                <img src={`/images/myAvatar.jpeg`} className="rounded-circle float-end" width="50px" height="50px"></img>
-                            </div>
-                        </div>
-                    ))}
-
-                </ul>
+            <div className="row bg-info border border-dark rounded mt-3">
+                <h2 className="text-center py-2">Following</h2>
+                <div className="list-group my-3 ms-1">
+                    {followingDisplay()}
+                </div>
             </div>
 
 

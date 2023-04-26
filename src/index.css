@@ -22,8 +22,20 @@ code {
    right: 25px;
 }
 
+.wd-right-bottom-1 {
+   bottom: -50px;
+   right: 110px;
+}
+
 .wd-game-summary-image {
-  width:300px;
+  width: 100%;
+  height:100px;
+  object-fit: cover;
+  object-position: 100% 50%;
+}
+
+.wd-game-recommend-image {
+  width: 500px;
   height:100px;
   object-fit: cover;
   object-position: 100% 50%;
@@ -32,4 +44,56 @@ code {
 .wd-input-hint {
    top: 28px;
    left: 38px;
+}
+
+.wd-mag-pos {
+   position: absolute;
+   top: 7px;
+   left: 30px;
+}
+
+.wd-btn-circle {
+    padding: 6px 0px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 12px;
+}
+
+.wd-bg-lightblue {
+  background-color: rgb(108, 169, 204);
+}
+
+.wd-bg-lightgreen {
+  background-color: rgb(134, 214, 114);
+}
+
+.wd-bg-lightyellow {
+  background-color: rgb(224, 185, 125);
+}
+
+.wd-bg-lightred {
+  background-color: rgb(228, 127, 161);
+}
+
+.wd-bg-light {
+  background-color: rgb(255, 250, 242);
+}
+
+.wd-bg-lightpurple {
+  background-color: rgb(175, 111, 235);
+}
+
+@media (min-width: 576px) {
+    .card-group.card-group-scroll {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+}
+
+.card-group.card-group-scroll > .card {
+    flex-basis: 350px;
+}
+
+.wd-fixed-height {
+  height: 100px;
 }

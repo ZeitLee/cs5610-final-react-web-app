@@ -29,8 +29,3 @@ export const getStores = async () => {
     )
     return response.data;
 }
-
-export const getNews = async () => {
-    const response = await axios.get(`${API}/stores?lastChange`);
-    return response.data;
-}

@@ -7,6 +7,7 @@ import UserReview from "./user-review"
 
 
 
+
 const DetailComponent = () => {
     const { id } = useParams();
     const [game, setGame] = useState(null);
