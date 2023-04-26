@@ -49,7 +49,7 @@ function ClubScreen() {
                             </div>
 
                             <div className="col-4">
-                                <img src="/images/myAvatar.jpeg" alt="c-icon" className="float-end" height={150}></img>
+                                <img src="/images/club-default.jpeg" alt="c-icon" className="float-end" height={150}></img>
                             </div>
                         </div>
 

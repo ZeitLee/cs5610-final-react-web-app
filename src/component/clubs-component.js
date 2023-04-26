@@ -15,6 +15,7 @@ const ClubList = ({ userId }) => {
         fetchClubs();
     }, [userId])
 
+
     return (
         <div className="border border-5 border-white wd-bg-lightgreen rounded mt-3">
             <h2 className="text-center py-2"> Joined Club</h2>
@@ -22,7 +23,9 @@ const ClubList = ({ userId }) => {
             <ul class="d-flex flex-wrap mx-auto ">
                 {clubs?.map((club) => (
                     <li class="list-group-item m-2 bg-light rounded text-center">
-                        <Link to={`/clubs/${club.clubId._id}`} className="mx-3">{club.clubId.name}</Link> <br />
+                        {club.clubId !== null &&
+                            <Link to={`/clubs/${club.clubId._id}`} className="mx-3">{club.clubId.name}</Link>}
+
                         <img src="/images/club-default.jpeg" className="rounded m-3" width={100}></img>
                     </li>
                 ))}

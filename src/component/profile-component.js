@@ -22,7 +22,7 @@ const ProfileComponent = ({ profile }) => {
         if (currentUser === null) {
 
         }
-        else if (profile === currentUser) {
+        else if (profile._id === currentUser._id) {
             return (
                 <Link to="/profile/edit-profile" className="position-absolute wd-right-bottom btn btn-light border border-2 border-dark rounded-pill py-1">
                     Edit Profile

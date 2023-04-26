@@ -20,3 +20,9 @@ export const findClubById = async (id) => {
     const response = await api.get(`${CLUBS_API}/${id}`);
     return response.data;
 }
+
+export const deleteClubById = async (id) => {
+    console.log(id);
+    const response = await api.delete(`${CLUBS_API}/${id}`);
+    return response.data;
+}

@@ -5,13 +5,13 @@ import '../index.css'
 const NewComponent = ({ news }) => {
 
     return (
-        <div className="list-group-item bg-warning">
-            <div className="row ">
+        <div className="list-group-item bg-warning border border-2 border-white" key={news._id}>
+            <div className="row">
 
                 <div className="col-8">
-                    <h4>{news.gameName}</h4>
-                    <div className="border border-white rounded px-3 py-2 my-3">
-                        <Link to={`game/detail/${news.gameId}`}>{news.text}</Link>
+                    <h4 className="mt-2">{news.gameName}</h4>
+                    <div className="border border-white rounded px-3 py-2 mt-2">
+                        <Link to={`/game/detail/${news.gameId}`}>{news.text}</Link>
                     </div>
                     <p className="float-end mt-2"> Reviewed by: {news.userId.firstname} {news.userId.lastname}</p>
                 </div>
